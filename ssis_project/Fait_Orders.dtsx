@@ -1,0 +1,1646 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/29/2021 6:15:24 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BREEZY-ALOO"
+  DTS:CreatorName="BREEZY-ALOO\LENOVO"
+  DTS:DTSID="{28F1FE4B-DA0C-42E9-BE07-ECBF2591F5C1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Fait_Orders"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{3485BD62-992B-4052-A6F6-FC7F67B34151}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BREEZY-ALOO.PROJECT_MICROBUS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{337FF090-84DC-459C-8E92-8C5B72E19BED}"
+      DTS:ObjectName="BREEZY-ALOO.PROJECT_MICROBUS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BREEZY-ALOO;Initial Catalog=PROJECT_MICROBUS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A43F2A5E-39E2-47B4-98F3-608CC4FF498A}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\BI_SELF_SERVICE\projet_BI_sefl_Service\projet_BI_sefl_Service\ORDERS.xlsx;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{11043184-25CC-4E36-B1D1-1C025EFC2A82}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{7C566BE8-E16D-497F-8C07-1CE41220633B}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 3]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{65AA8942-7D27-4A74-8138-2A431437FD94}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\BI_SELF_SERVICE\projet_BI_sefl_Service\projet_BI_sefl_Service\ORDERS.xlsx;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 4]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{AD81747F-786C-4A41-8E3C-CBFDF16AF770}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 5]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4C295E39-853B-4E1C-8331-7530581EC9D7}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 6]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{1491C789-6DC3-4925-9858-115EA0290A89}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 6">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 7]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{CB70E21C-1683-4A8C-B2C0-58A4BBA70BC7}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 7">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ORDERS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{6DF2E86D-AF02-4322-8857-B6666B032562}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ORDERS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ORDERS\Jointure de fusion"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine deux flux de données triés en un seul à l'aide de la jointure FULL, LEFT ou INNER. Nous recommandons cette transformation lorsque les flux de données peuvent être triés au niveau de leurs sources."
+              name="Jointure de fusion"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de jointure à effectuer."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre de colonnes dans la clé de tri."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs NULL sont traitées comme valeurs égales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indique le nombre maximal de mémoires tampons demandées par entrée avant blocage."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée gauche de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[orderNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderNumber"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[orderNumber]" />
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[orderDate]"
+                      cachedDataType="date"
+                      cachedName="orderDate"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[orderDate]" />
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[requiredDate]"
+                      cachedDataType="date"
+                      cachedName="requiredDate"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[requiredDate]" />
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[shippedDate]"
+                      cachedDataType="date"
+                      cachedName="shippedDate"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[shippedDate]" />
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="status"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[status]" />
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[comments]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="comments"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[comments]" />
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[customerNumber]"
+                      cachedDataType="r8"
+                      cachedName="customerNumber"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[customerNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée droite de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[orderNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderNumber"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[orderNumber]" />
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[productCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="productCode"
+                      lineageId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[productCode]" />
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[quantityOrdered]"
+                      cachedDataType="r8"
+                      cachedName="quantityOrdered"
+                      lineageId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[quantityOrdered]" />
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[priceEach]"
+                      cachedDataType="r8"
+                      cachedName="priceEach"
+                      lineageId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[priceEach]" />
+                    <inputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[orderLineNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderLineNumber"
+                      lineageId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[orderLineNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion]"
+                  isSorted="true"
+                  name="Sortie de jointure de fusion">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderNumber]"
+                      name="orderNumber"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[orderNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[productCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[productCode]"
+                      name="productCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[productCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[quantityOrdered]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[quantityOrdered]"
+                      name="quantityOrdered">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[quantityOrdered]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[priceEach]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[priceEach]"
+                      name="priceEach">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[priceEach]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderLineNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderLineNumber]"
+                      name="orderLineNumber">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[orderLineNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderDate]"
+                      name="orderDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[orderDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[requiredDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[requiredDate]"
+                      name="requiredDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[requiredDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[shippedDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[shippedDate]"
+                      name="shippedDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[shippedDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[status]"
+                      name="status">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[status]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[comments]"
+                      name="comments">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[comments]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[customerNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[customerNumber]"
+                      name="customerNumber">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[customerNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ORDERS\Recherche"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [DWH].[Dim_CUSTOMERS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="keyCustomer" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customerNumber" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customerName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="contactLastName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="contactFirstName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="phone" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="addressLine1" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="addressLine2" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="state" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="postalCode" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="country" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="salesRepEmployeeNumber" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="creditLimit" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ORDERS\Recherche.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BREEZY-ALOO.PROJECT_MICROBUS]"
+                  connectionManagerRefId="Package.ConnectionManagers[BREEZY-ALOO.PROJECT_MICROBUS]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ORDERS\Recherche.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ORDERS\Recherche.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\ORDERS\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[customerNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\ORDERS\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[customerNumber]"
+                      name="customerNumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">customerNumber</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ORDERS\Recherche.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\ORDERS\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ORDERS\Recherche.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\ORDERS\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ORDERS\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ORDERS\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ORDERS\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ORDERS\SRC_ORDERDETAILS"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="SRC_ORDERDETAILS"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">orderdetails$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ORDERS\SRC_ORDERDETAILS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 7]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 7]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[orderNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].ExternalColumns[orderNumber]"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[orderNumber]"
+                      name="orderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[productCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].ExternalColumns[productCode]"
+                      length="255"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[productCode]"
+                      name="productCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[quantityOrdered]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].ExternalColumns[quantityOrdered]"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[quantityOrdered]"
+                      name="quantityOrdered"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[priceEach]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].ExternalColumns[priceEach]"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[priceEach]"
+                      name="priceEach"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[orderLineNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].ExternalColumns[orderLineNumber]"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[orderLineNumber]"
+                      name="orderLineNumber"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].ExternalColumns[orderNumber]"
+                      dataType="r8"
+                      name="orderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].ExternalColumns[productCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="productCode" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].ExternalColumns[quantityOrdered]"
+                      dataType="r8"
+                      name="quantityOrdered" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].ExternalColumns[priceEach]"
+                      dataType="r8"
+                      name="priceEach" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].ExternalColumns[orderLineNumber]"
+                      dataType="r8"
+                      name="orderLineNumber" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[orderNumber]"
+                      name="orderNumber" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[productCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[productCode]"
+                      name="productCode" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[quantityOrdered]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[quantityOrdered]"
+                      name="quantityOrdered" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[priceEach]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[priceEach]"
+                      name="priceEach" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[orderLineNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[orderLineNumber]"
+                      name="orderLineNumber" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ORDERS\SRC_ORDERS"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="SRC_ORDERS"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">orders$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ORDERS\SRC_ORDERS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel 6]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel 6]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[orderNumber]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderNumber]"
+                      name="orderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[orderDate]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderDate]"
+                      name="orderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[requiredDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[requiredDate]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[requiredDate]"
+                      name="requiredDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[shippedDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[shippedDate]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[shippedDate]"
+                      name="shippedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[status]"
+                      length="255"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[status]"
+                      name="status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[customerNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[customerNumber]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[customerNumber]"
+                      name="customerNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[comments]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[comments]"
+                      length="255"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[comments]"
+                      name="comments"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[orderNumber]"
+                      dataType="r8"
+                      name="orderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[orderDate]"
+                      dataType="date"
+                      name="orderDate" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[requiredDate]"
+                      dataType="date"
+                      name="requiredDate" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[shippedDate]"
+                      dataType="date"
+                      name="shippedDate" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[status]"
+                      dataType="wstr"
+                      length="255"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[customerNumber]"
+                      dataType="r8"
+                      name="customerNumber" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      name="comments" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[orderNumber]"
+                      name="orderNumber" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[orderDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[orderDate]"
+                      name="orderDate" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[requiredDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[requiredDate]"
+                      name="requiredDate" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[shippedDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[shippedDate]"
+                      name="shippedDate" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[status]"
+                      name="status" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[comments]"
+                      name="comments" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[customerNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[customerNumber]"
+                      name="customerNumber" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ORDERS\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ORDERS\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier.Inputs[Entrée de tri].Columns[orderNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderNumber"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderNumber]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier.Inputs[Entrée de tri].Columns[orderDate]"
+                      cachedDataType="date"
+                      cachedName="orderDate"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier.Inputs[Entrée de tri].Columns[requiredDate]"
+                      cachedDataType="date"
+                      cachedName="requiredDate"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[requiredDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier.Inputs[Entrée de tri].Columns[shippedDate]"
+                      cachedDataType="date"
+                      cachedName="shippedDate"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[shippedDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier.Inputs[Entrée de tri].Columns[status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="status"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[status]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier.Inputs[Entrée de tri].Columns[customerNumber]"
+                      cachedDataType="r8"
+                      cachedName="customerNumber"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[customerNumber]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier.Inputs[Entrée de tri].Columns[comments]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="comments"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[comments]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ORDERS\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[orderNumber]"
+                      name="orderNumber"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[orderDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[orderDate]"
+                      name="orderDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[requiredDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[requiredDate]"
+                      name="requiredDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[requiredDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[shippedDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[shippedDate]"
+                      name="shippedDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[shippedDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[status]"
+                      name="status">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[status]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[customerNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[customerNumber]"
+                      name="customerNumber">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[customerNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\Trier.Outputs[Sortie de tri].Columns[comments]"
+                      name="comments">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[comments]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ORDERS\Trier 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ORDERS\Trier 1.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier 1.Inputs[Entrée de tri].Columns[orderNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderNumber"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[orderNumber]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier 1.Inputs[Entrée de tri].Columns[productCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="productCode"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[productCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier 1.Inputs[Entrée de tri].Columns[quantityOrdered]"
+                      cachedDataType="r8"
+                      cachedName="quantityOrdered"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[quantityOrdered]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier 1.Inputs[Entrée de tri].Columns[priceEach]"
+                      cachedDataType="r8"
+                      cachedName="priceEach"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[priceEach]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ORDERS\Trier 1.Inputs[Entrée de tri].Columns[orderLineNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderLineNumber"
+                      lineageId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[orderLineNumber]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ORDERS\Trier 1.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[orderNumber]"
+                      name="orderNumber"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[orderNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[productCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[productCode]"
+                      name="productCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[productCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[quantityOrdered]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[quantityOrdered]"
+                      name="quantityOrdered">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[quantityOrdered]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[priceEach]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[priceEach]"
+                      name="priceEach">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[priceEach]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[orderLineNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\Trier 1.Outputs[Sortie de tri].Columns[orderLineNumber]"
+                      name="orderLineNumber">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel].Columns[orderLineNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ORDERS.Paths[Sortie de jointure de fusion]"
+              endId="Package\ORDERS\Recherche.Inputs[Entrée de recherche]"
+              name="Sortie de jointure de fusion"
+              startId="Package\ORDERS\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\ORDERS.Paths[Sortie de source Excel]"
+              endId="Package\ORDERS\Trier.Inputs[Entrée de tri]"
+              name="Sortie de source Excel"
+              startId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel]" />
+            <path
+              refId="Package\ORDERS.Paths[Sortie de source Excel1]"
+              endId="Package\ORDERS\Trier 1.Inputs[Entrée de tri]"
+              name="Sortie de source Excel"
+              startId="Package\ORDERS\SRC_ORDERDETAILS.Outputs[Sortie de source Excel]" />
+            <path
+              refId="Package\ORDERS.Paths[Sortie de tri]"
+              endId="Package\ORDERS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\ORDERS\Trier.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\ORDERS.Paths[Sortie de tri1]"
+              endId="Package\ORDERS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\ORDERS\Trier 1.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="120,42.6666666666667"
+          Id="Package\ORDERS"
+          TopLeft="100.49999858439,104.299998233318" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ORDERS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42.6666666666667"
+          Id="Package\ORDERS\SRC_ORDERS"
+          TopLeft="29.3749995622784,55.249999012053" />
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\ORDERS\SRC_ORDERDETAILS"
+          TopLeft="397.499994076789,38.3499993142486" />
+        <NodeLayout
+          Size="129.333333333334,42.6666666666667"
+          Id="Package\ORDERS\Recherche"
+          TopLeft="367.999994598329,200.916663935284" />
+        <NodeLayout
+          Size="101.333333333334,42.6666666666667"
+          Id="Package\ORDERS\Trier"
+          TopLeft="208.749996889383,70.8499987331033" />
+        <NodeLayout
+          Size="110.666666666667,42.6666666666667"
+          Id="Package\ORDERS\Trier 1"
+          TopLeft="357.499994672835,104.649998128712" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\ORDERS\Jointure de fusion"
+          TopLeft="177.499997355044,160.549997129142" />
+        <EdgeLayout
+          Id="Package\ORDERS.Paths[Sortie de tri1]"
+          TopLeft="357.499994672835,125.983331462046">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-71.999997317791,34.5666656670968"
+              Start="0,0"
+              End="-71.999997317791,27.0666656670968">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-67.999997317791,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-67.999997317791,0"
+                    Point2="-71.999997317791,0"
+                    Point3="-71.999997317791,4" />
+                  <mssgle:LineSegment
+                    End="-71.999997317791,27.0666656670968" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ORDERS.Paths[Sortie de tri]"
+          TopLeft="259.416663556049,113.51666539977">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.9166662010055,47.0333317293724"
+              Start="0,0"
+              End="-25.9166662010055,39.5333317293724">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.9473420420908" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.9473420420908"
+                    Point2="0,27.9473420420908"
+                    Point3="-4,27.9473420420908" />
+                  <mssgle:LineSegment
+                    End="-21.9166662010055,27.9473420420908" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.9166662010055,27.9473420420908"
+                    Point2="-25.9166662010055,27.9473420420908"
+                    Point3="-25.9166662010055,31.9473420420908" />
+                  <mssgle:LineSegment
+                    End="-25.9166662010055,39.5333317293724" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ORDERS.Paths[Sortie de source Excel1]"
+          TopLeft="487.499994076789,81.0166659809152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-74.6666660706202,23.633332147797"
+              Start="0,0"
+              End="-74.6666660706202,16.133332147797">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.81666607389848" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.81666607389848"
+                    Point2="0,11.8166660738985"
+                    Point3="-4,11.8166660738985" />
+                  <mssgle:LineSegment
+                    End="-70.6666660706202,11.8166660738985" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-70.6666660706202,11.8166660738985"
+                    Point2="-74.6666660706202,11.8166660738985"
+                    Point3="-74.6666660706202,15.8166660738985" />
+                  <mssgle:LineSegment
+                    End="-74.6666660706202,16.133332147797" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ORDERS.Paths[Sortie de source Excel]"
+          TopLeft="173.374999562278,76.5833323453864">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.3749973271044,15.5999997210503"
+              Start="0,0"
+              End="27.8749973271044,15.5999997210503">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="13.6874986635522,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.6874986635522,0"
+                    Point2="17.6874986635522,0"
+                    Point3="17.6874986635522,4" />
+                  <mssgle:LineSegment
+                    End="17.6874986635522,11.5999997210503" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.6874986635522,11.5999997210503"
+                    Point2="17.6874986635522,15.5999997210503"
+                    Point3="21.6874986635522,15.5999997210503" />
+                  <mssgle:LineSegment
+                    End="27.8749973271044,15.5999997210503" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ORDERS.Paths[Sortie de jointure de fusion]"
+          TopLeft="341.499997355044,181.883330462475">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.4999972432851,40.3666668061416"
+              Start="0,0"
+              End="18.9999972432851,40.3666668061416">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="9.24999862164253,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.24999862164253,0"
+                    Point2="13.2499986216425,0"
+                    Point3="13.2499986216425,4" />
+                  <mssgle:LineSegment
+                    End="13.2499986216425,36.3666668061416" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.2499986216425,36.3666668061416"
+                    Point2="13.2499986216425,40.3666668061416"
+                    Point3="17.2499986216425,40.3666668061416" />
+                  <mssgle:LineSegment
+                    End="18.9999972432851,40.3666668061416" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ORDERS\SRC_ORDERS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ORDERS\SRC_ORDERDETAILS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ORDERS\Recherche">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[DWH].[Dim_CUSTOMERS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,452 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/8/2021 10:19:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BREEZY-ALOO"
+  DTS:CreatorName="BREEZY-ALOO\LENOVO"
+  DTS:DTSID="{8D357C34-924E-407B-981C-3447D499D6A6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{87EC4D75-ED9C-4AA8-ADC3-8DFA3C57452E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{70F7FC73-4D32-463D-B6E4-6C99E988B98E}"
+      DTS:ObjectName="BREEZY-ALOO.ODS_MACROBUS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BREEZY-ALOO;Initial Catalog=ODS_MACROBUS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{79243687-78F2-4F9C-A237-F15BBC08009D}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\PAYMENTS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{1B6D4253-24A1-4BB4-9A09-3D26C97B8ECB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PAYMENTS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\PAYMENTS\ODS_PAYMENTS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="ODS_PAYMENTS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[ODS].[ODS_PAYMENTS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PAYMENTS\ODS_PAYMENTS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  connectionManagerRefId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].Columns[customerNumber]"
+                      cachedDataType="r8"
+                      cachedName="customerNumber"
+                      externalMetadataColumnId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].ExternalColumns[customerNumber]"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[customerNumber]" />
+                    <inputColumn
+                      refId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].Columns[checkNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="checkNumber"
+                      externalMetadataColumnId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].ExternalColumns[checkNumber]"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[checkNumber]" />
+                    <inputColumn
+                      refId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].Columns[paymentDate]"
+                      cachedDataType="date"
+                      cachedName="paymentDate"
+                      externalMetadataColumnId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].ExternalColumns[paymentDate]"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[paymentDate]" />
+                    <inputColumn
+                      refId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].Columns[amount]"
+                      cachedDataType="r8"
+                      cachedName="amount"
+                      externalMetadataColumnId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].ExternalColumns[amount]"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].ExternalColumns[customerNumber]"
+                      dataType="r8"
+                      name="customerNumber" />
+                    <externalMetadataColumn
+                      refId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].ExternalColumns[checkNumber]"
+                      dataType="wstr"
+                      length="255"
+                      name="checkNumber" />
+                    <externalMetadataColumn
+                      refId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].ExternalColumns[paymentDate]"
+                      dataType="dbTimeStamp"
+                      name="paymentDate" />
+                    <externalMetadataColumn
+                      refId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB].ExternalColumns[amount]"
+                      dataType="r8"
+                      name="amount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PAYMENTS\ODS_PAYMENTS.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PAYMENTS\ODS_PAYMENTS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PAYMENTS\ODS_PAYMENTS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PAYMENTS\ODS_PAYMENTS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PAYMENTS\ODS_PAYMENTS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PAYMENTS\SRC_PAYMENTS"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="SRC_PAYMENTS"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">payments$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PAYMENTS\SRC_PAYMENTS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[customerNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].ExternalColumns[customerNumber]"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[customerNumber]"
+                      name="customerNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[checkNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].ExternalColumns[checkNumber]"
+                      length="255"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[checkNumber]"
+                      name="checkNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[paymentDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].ExternalColumns[paymentDate]"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[paymentDate]"
+                      name="paymentDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].ExternalColumns[amount]"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].Columns[amount]"
+                      name="amount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].ExternalColumns[customerNumber]"
+                      dataType="r8"
+                      name="customerNumber" />
+                    <externalMetadataColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].ExternalColumns[checkNumber]"
+                      dataType="wstr"
+                      length="255"
+                      name="checkNumber" />
+                    <externalMetadataColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].ExternalColumns[paymentDate]"
+                      dataType="date"
+                      name="paymentDate" />
+                    <externalMetadataColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel].ExternalColumns[amount]"
+                      dataType="r8"
+                      name="amount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[customerNumber]"
+                      dataType="r8"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[customerNumber]"
+                      name="customerNumber" />
+                    <outputColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[checkNumber]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[checkNumber]"
+                      name="checkNumber" />
+                    <outputColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[paymentDate]"
+                      dataType="date"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[paymentDate]"
+                      name="paymentDate" />
+                    <outputColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[amount]"
+                      dataType="r8"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[amount]"
+                      name="amount" />
+                    <outputColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\PAYMENTS.Paths[Sortie de source Excel]"
+              endId="Package\PAYMENTS\ODS_PAYMENTS.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source Excel"
+              startId="Package\PAYMENTS\SRC_PAYMENTS.Outputs[Sortie de source Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="132,42.6666666666667"
+          Id="Package\PAYMENTS"
+          TopLeft="58.7499991245568,85.7999984657765" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\PAYMENTS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\PAYMENTS\SRC_PAYMENTS"
+          TopLeft="72.4999989196658,105.299998117089" />
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\PAYMENTS\ODS_PAYMENTS"
+          TopLeft="369.374994495884,106.599998093844" />
+        <EdgeLayout
+          Id="Package\PAYMENTS.Paths[Sortie de source Excel]"
+          TopLeft="228.499998919666,127.2833314388">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.874995576218,0"
+              Start="0,0"
+              End="133.374995576218,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="133.374995576218,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PAYMENTS\SRC_PAYMENTS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PAYMENTS\ODS_PAYMENTS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

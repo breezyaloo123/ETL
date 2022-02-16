@@ -1,0 +1,811 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/28/2021 8:21:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BREEZY-ALOO"
+  DTS:CreatorName="BREEZY-ALOO\LENOVO"
+  DTS:DTSID="{2B18E78F-E2A9-492A-AFD5-614B928C3CD8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Dim_Customers"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{FABB7E43-CFB6-44E2-AD76-BB4D79E47F41}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{37E6FCE7-C56D-4327-A90B-A37BC8EE0839}"
+      DTS:ObjectName="BREEZY-ALOO.ODS_MACROBUS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BREEZY-ALOO;Initial Catalog=ODS_MACROBUS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BREEZY-ALOO.PROJECT_MICROBUS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9E2AFFA0-598C-4007-A97C-DDDC9985A5C5}"
+      DTS:ObjectName="BREEZY-ALOO.PROJECT_MICROBUS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BREEZY-ALOO;Initial Catalog=PROJECT_MICROBUS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A6C28EE5-B0F6-40EF-9D56-E177750BFDD3}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\BI_SELF_SERVICE\projet_BI_sefl_Service\projet_BI_sefl_Service\ORDERS.xlsx;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{AFE72429-4FCF-48A4-99E1-7D4B56907433}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\LENOVO\Documents\M2BI\BI_SELF_SERVICE\projet_BI_sefl_Service\ORDERS (2).xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{63445DE6-4A48-4C38-A8DE-76E0867D4CBA}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\BI_SELF_SERVICE\projet_BI_sefl_Service\ORDERS (2).xlsx;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 3]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{38F5ECC2-6BA7-4D3C-86C0-16073945783F}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 4]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{2169D0BD-B4DA-4428-B7BB-B4E84BEFFF5A}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CUSTOMERS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{A1AA2A05-7747-4821-9A1E-B8C0EB3EB1D8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CUSTOMERS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CUSTOMERS\DST_CUSTOMERS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="DST_CUSTOMERS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[DWH].[Dim_CUSTOMERS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CUSTOMERS\DST_CUSTOMERS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BREEZY-ALOO.PROJECT_MICROBUS]"
+                  connectionManagerRefId="Package.ConnectionManagers[BREEZY-ALOO.PROJECT_MICROBUS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[customerNumber]"
+                      cachedDataType="i4"
+                      cachedName="customerNumber"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[customerNumber]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[customerNumber]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[customerName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customerName"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[customerName]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[customerName]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[contactLastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="contactLastName"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[contactLastName]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[contactLastName]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[contactFirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="contactFirstName"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[contactFirstName]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[contactFirstName]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[phone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[phone]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[addressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="addressLine1"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[addressLine1]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[addressLine1]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[addressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="addressLine2"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[addressLine2]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[addressLine2]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[city]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[city]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[state]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[state]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[postalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="postalCode"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[postalCode]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[postalCode]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[country]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[country]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[salesRepEmployeeNumber]"
+                      cachedDataType="r8"
+                      cachedName="salesRepEmployeeNumber"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[salesRepEmployeeNumber]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[salesRepEmployeeNumber]" />
+                    <inputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].Columns[creditLimit]"
+                      cachedDataType="r8"
+                      cachedName="creditLimit"
+                      externalMetadataColumnId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[creditLimit]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[creditLimit]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[customerNumber]"
+                      dataType="i4"
+                      name="customerNumber" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[customerName]"
+                      dataType="wstr"
+                      length="255"
+                      name="customerName" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[contactLastName]"
+                      dataType="wstr"
+                      length="255"
+                      name="contactLastName" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[contactFirstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="contactFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[addressLine1]"
+                      dataType="wstr"
+                      length="255"
+                      name="addressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[addressLine2]"
+                      dataType="wstr"
+                      length="255"
+                      name="addressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[postalCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="postalCode" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[salesRepEmployeeNumber]"
+                      dataType="r8"
+                      name="salesRepEmployeeNumber" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[creditLimit]"
+                      dataType="r8"
+                      name="creditLimit" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB].ExternalColumns[keyCustomer]"
+                      dataType="i4"
+                      name="keyCustomer" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CUSTOMERS\DST_CUSTOMERS.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CUSTOMERS\DST_CUSTOMERS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\DST_CUSTOMERS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CUSTOMERS\DST_CUSTOMERS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CUSTOMERS\SRC_CUSTOMERS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="SRC_CUSTOMERS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[ODS].[ODS_CUSTOMERS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CUSTOMERS\SRC_CUSTOMERS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  connectionManagerRefId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[customerNumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[customerNumber]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[customerNumber]"
+                      name="customerNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[customerName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[customerName]"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[customerName]"
+                      name="customerName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[contactLastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[contactLastName]"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[contactLastName]"
+                      name="contactLastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[contactFirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[contactFirstName]"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[contactFirstName]"
+                      name="contactFirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[phone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[phone]"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[phone]"
+                      name="phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[addressLine1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[addressLine1]"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[addressLine1]"
+                      name="addressLine1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[addressLine2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[addressLine2]"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[addressLine2]"
+                      name="addressLine2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[city]"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[state]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[state]"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[state]"
+                      name="state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[postalCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[postalCode]"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[postalCode]"
+                      name="postalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[country]"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[salesRepEmployeeNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[salesRepEmployeeNumber]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[salesRepEmployeeNumber]"
+                      name="salesRepEmployeeNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[creditLimit]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[creditLimit]"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].Columns[creditLimit]"
+                      name="creditLimit"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[customerNumber]"
+                      dataType="i4"
+                      name="customerNumber" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[customerName]"
+                      dataType="wstr"
+                      length="255"
+                      name="customerName" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[contactLastName]"
+                      dataType="wstr"
+                      length="255"
+                      name="contactLastName" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[contactFirstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="contactFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[addressLine1]"
+                      dataType="wstr"
+                      length="255"
+                      name="addressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[addressLine2]"
+                      dataType="wstr"
+                      length="255"
+                      name="addressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[postalCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="postalCode" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="255"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[salesRepEmployeeNumber]"
+                      dataType="r8"
+                      name="salesRepEmployeeNumber" />
+                    <externalMetadataColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB].ExternalColumns[creditLimit]"
+                      dataType="r8"
+                      name="creditLimit" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[customerNumber]"
+                      dataType="i4"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[customerNumber]"
+                      name="customerNumber" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[customerName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[customerName]"
+                      name="customerName" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[contactLastName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[contactLastName]"
+                      name="contactLastName" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[contactFirstName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[contactFirstName]"
+                      name="contactFirstName" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[phone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[phone]"
+                      name="phone" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[addressLine1]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[addressLine1]"
+                      name="addressLine1" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[addressLine2]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[addressLine2]"
+                      name="addressLine2" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[city]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[state]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[state]"
+                      name="state" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[postalCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[postalCode]"
+                      name="postalCode" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[country]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[salesRepEmployeeNumber]"
+                      dataType="r8"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[salesRepEmployeeNumber]"
+                      name="salesRepEmployeeNumber" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[creditLimit]"
+                      dataType="r8"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[creditLimit]"
+                      name="creditLimit" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CUSTOMERS.Paths[Sortie de source OLE DB]"
+              endId="Package\CUSTOMERS\DST_CUSTOMERS.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\CUSTOMERS\SRC_CUSTOMERS.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="140,42.6666666666667"
+          Id="Package\CUSTOMERS"
+          TopLeft="51.2499992363155,66.9499988028407" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CUSTOMERS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\CUSTOMERS\DST_CUSTOMERS"
+          TopLeft="366.24999454245,64.9999988377094" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\CUSTOMERS\SRC_CUSTOMERS"
+          TopLeft="53.1249992083758,66.9499988028407" />
+        <EdgeLayout
+          Id="Package\CUSTOMERS.Paths[Sortie de source OLE DB]"
+          TopLeft="217.124999208376,87.3083321536084">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="149.124995334074,0"
+              Start="0,0"
+              End="141.624995334074,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="141.624995334074,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CUSTOMERS\DST_CUSTOMERS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CUSTOMERS\SRC_CUSTOMERS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

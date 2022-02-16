@@ -1,0 +1,589 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/8/2021 10:04:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BREEZY-ALOO"
+  DTS:CreatorName="BREEZY-ALOO\LENOVO"
+  DTS:DTSID="{4E8A2C9D-C543-4B88-A481-15533717F260}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{9FFE9CD4-F3B6-4EDD-AF4F-0B78C10C5889}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0096F154-DF5D-4A02-BD4F-219FA54300C0}"
+      DTS:ObjectName="BREEZY-ALOO.ODS_MACROBUS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BREEZY-ALOO;Initial Catalog=ODS_MACROBUS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{FC6605A2-F8FA-474F-8763-EEE0B48F983E}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\EMPLOYEES"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{7194365F-A00C-4E43-936A-09F75F141F4C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EMPLOYEES"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\EMPLOYEES\ODS_EMPLOYEES"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="ODS_EMPLOYEES"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[ODS].[ODS_EMPLOYEES]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\EMPLOYEES\ODS_EMPLOYEES.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  connectionManagerRefId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].Columns[employeeNumber]"
+                      cachedDataType="r8"
+                      cachedName="employeeNumber"
+                      externalMetadataColumnId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[employeeNumber]"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[employeeNumber]" />
+                    <inputColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].Columns[lastName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lastName"
+                      externalMetadataColumnId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[lastName]"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[lastName]" />
+                    <inputColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].Columns[firstName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="firstName"
+                      externalMetadataColumnId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[firstName]"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[firstName]" />
+                    <inputColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].Columns[extension]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="extension"
+                      externalMetadataColumnId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[extension]"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[extension]" />
+                    <inputColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[email]" />
+                    <inputColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].Columns[officeCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="officeCode"
+                      externalMetadataColumnId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[officeCode]"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[officeCode]" />
+                    <inputColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].Columns[reportsTo]"
+                      cachedDataType="r8"
+                      cachedName="reportsTo"
+                      externalMetadataColumnId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[reportsTo]"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[reportsTo]" />
+                    <inputColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].Columns[jobTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="jobTitle"
+                      externalMetadataColumnId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[jobTitle]"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[jobTitle]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[employeeNumber]"
+                      dataType="r8"
+                      name="employeeNumber" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[lastName]"
+                      dataType="wstr"
+                      length="255"
+                      name="lastName" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[firstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="firstName" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[extension]"
+                      dataType="wstr"
+                      length="255"
+                      name="extension" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[officeCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="officeCode" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[reportsTo]"
+                      dataType="r8"
+                      name="reportsTo" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB].ExternalColumns[jobTitle]"
+                      dataType="wstr"
+                      length="255"
+                      name="jobTitle" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\EMPLOYEES\ODS_EMPLOYEES.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\EMPLOYEES\ODS_EMPLOYEES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\ODS_EMPLOYEES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\EMPLOYEES\ODS_EMPLOYEES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\EMPLOYEES\SRC_EMPLOYEES"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="SRC_EMPLOYEES"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">employees$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\EMPLOYEES\SRC_EMPLOYEES.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[employeeNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[employeeNumber]"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[employeeNumber]"
+                      name="employeeNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[lastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[lastName]"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[lastName]"
+                      name="lastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[firstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[firstName]"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[firstName]"
+                      name="firstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[extension]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[extension]"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[extension]"
+                      name="extension"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[email]"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[officeCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[officeCode]"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[officeCode]"
+                      name="officeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[reportsTo]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[reportsTo]"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[reportsTo]"
+                      name="reportsTo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[jobTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[jobTitle]"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].Columns[jobTitle]"
+                      name="jobTitle"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[employeeNumber]"
+                      dataType="r8"
+                      name="employeeNumber" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[lastName]"
+                      dataType="wstr"
+                      length="255"
+                      name="lastName" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[firstName]"
+                      dataType="wstr"
+                      length="255"
+                      name="firstName" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[extension]"
+                      dataType="wstr"
+                      length="255"
+                      name="extension" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[officeCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="officeCode" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[reportsTo]"
+                      dataType="r8"
+                      name="reportsTo" />
+                    <externalMetadataColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel].ExternalColumns[jobTitle]"
+                      dataType="wstr"
+                      length="255"
+                      name="jobTitle" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[employeeNumber]"
+                      dataType="r8"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[employeeNumber]"
+                      name="employeeNumber" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[lastName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[lastName]"
+                      name="lastName" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[firstName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[firstName]"
+                      name="firstName" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[extension]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[extension]"
+                      name="extension" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[email]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[officeCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[officeCode]"
+                      name="officeCode" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[reportsTo]"
+                      dataType="r8"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[reportsTo]"
+                      name="reportsTo" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[jobTitle]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[jobTitle]"
+                      name="jobTitle" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\EMPLOYEES.Paths[Sortie de source Excel]"
+              endId="Package\EMPLOYEES\ODS_EMPLOYEES.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source Excel"
+              startId="Package\EMPLOYEES\SRC_EMPLOYEES.Outputs[Sortie de source Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136,42.6666666666667"
+          Id="Package\EMPLOYEES"
+          TopLeft="100.624998500571,84.4999984890223" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\EMPLOYEES">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\EMPLOYEES\SRC_EMPLOYEES"
+          TopLeft="104.999998435378,66.9499988028407" />
+        <NodeLayout
+          Size="162.666666666667,42.6666666666667"
+          Id="Package\EMPLOYEES\ODS_EMPLOYEES"
+          TopLeft="418.749993760139,71.4999987214804" />
+        <EdgeLayout
+          Id="Package\EMPLOYEES.Paths[Sortie de source Excel]"
+          TopLeft="266.333331768711,90.5583320954939">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="152.416661991427,0"
+              Start="0,0"
+              End="144.916661991427,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="144.916661991427,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\EMPLOYEES\SRC_EMPLOYEES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\EMPLOYEES\ODS_EMPLOYEES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

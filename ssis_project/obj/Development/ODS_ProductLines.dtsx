@@ -1,0 +1,441 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/8/2021 10:15:24 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BREEZY-ALOO"
+  DTS:CreatorName="BREEZY-ALOO\LENOVO"
+  DTS:DTSID="{34EA6DA8-523D-424B-AF20-F879BB943A06}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="ODS_ProductLines"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{FD02EC80-4AAD-4FEB-9CE9-C18332C0E5AC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{42B60E02-565D-4682-9643-960FA893B63F}"
+      DTS:ObjectName="BREEZY-ALOO.ODS_MACROBUS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BREEZY-ALOO;Initial Catalog=ODS_MACROBUS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{451ECEF6-3006-4895-8C46-08902EA8CCD4}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\PRODUCTLINES"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{3B101C75-97B4-4D0D-8798-8D4A7B1D0DA1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PRODUCTLINES"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\PRODUCTLINES\ODS_PRODUCTLINES"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="ODS_PRODUCTLINES"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[ODS].[ODS_PRODUCTLINES]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  connectionManagerRefId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB].Columns[productLine]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="productLine"
+                      externalMetadataColumnId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB].ExternalColumns[productLine]"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].Columns[productLine]" />
+                    <inputColumn
+                      refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB].Columns[textDescription]"
+                      cachedDataType="nText"
+                      cachedName="textDescription"
+                      externalMetadataColumnId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB].ExternalColumns[textDescription]"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].Columns[textDescription]" />
+                    <inputColumn
+                      refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB].Columns[htmlDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="htmlDescription"
+                      externalMetadataColumnId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB].ExternalColumns[htmlDescription]"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].Columns[htmlDescription]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB].ExternalColumns[productLine]"
+                      dataType="wstr"
+                      length="255"
+                      name="productLine" />
+                    <externalMetadataColumn
+                      refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB].ExternalColumns[textDescription]"
+                      dataType="nText"
+                      name="textDescription" />
+                    <externalMetadataColumn
+                      refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB].ExternalColumns[htmlDescription]"
+                      dataType="wstr"
+                      length="255"
+                      name="htmlDescription" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PRODUCTLINES\SRC_PRODUCTLINES"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="SRC_PRODUCTLINES"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">productlines$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].Columns[productLine]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].ExternalColumns[productLine]"
+                      length="255"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].Columns[productLine]"
+                      name="productLine"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].Columns[textDescription]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].ExternalColumns[textDescription]"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].Columns[textDescription]"
+                      name="textDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].Columns[htmlDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].ExternalColumns[htmlDescription]"
+                      length="255"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].Columns[htmlDescription]"
+                      name="htmlDescription"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].ExternalColumns[productLine]"
+                      dataType="wstr"
+                      length="255"
+                      name="productLine" />
+                    <externalMetadataColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].ExternalColumns[textDescription]"
+                      dataType="nText"
+                      name="textDescription" />
+                    <externalMetadataColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel].ExternalColumns[htmlDescription]"
+                      dataType="wstr"
+                      length="255"
+                      name="htmlDescription" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel].Columns[productLine]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel].Columns[productLine]"
+                      name="productLine" />
+                    <outputColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel].Columns[textDescription]"
+                      dataType="nText"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel].Columns[textDescription]"
+                      name="textDescription" />
+                    <outputColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel].Columns[htmlDescription]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel].Columns[htmlDescription]"
+                      name="htmlDescription" />
+                    <outputColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\PRODUCTLINES.Paths[Sortie de source Excel]"
+              endId="Package\PRODUCTLINES\ODS_PRODUCTLINES.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source Excel"
+              startId="Package\PRODUCTLINES\SRC_PRODUCTLINES.Outputs[Sortie de source Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\PRODUCTLINES"
+          TopLeft="88.749998677522,76.0499986401201" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\PRODUCTLINES">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\PRODUCTLINES\SRC_PRODUCTLINES"
+          TopLeft="86.2499987147748,87.0999984425307" />
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\PRODUCTLINES\ODS_PRODUCTLINES"
+          TopLeft="408.74999390915,103.349998151958" />
+        <EdgeLayout
+          Id="Package\PRODUCTLINES.Paths[Sortie de source Excel]"
+          TopLeft="266.249998714775,108.433331775864">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="142.499995194376,16.2499997094274"
+              Start="0,0"
+              End="134.999995194376,16.2499997094274">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="67.2499975971878,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.2499975971878,0"
+                    Point2="71.2499975971878,0"
+                    Point3="71.2499975971878,4" />
+                  <mssgle:LineSegment
+                    End="71.2499975971878,12.2499997094274" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.2499975971878,12.2499997094274"
+                    Point2="71.2499975971878,16.2499997094274"
+                    Point3="75.2499975971878,16.2499997094274" />
+                  <mssgle:LineSegment
+                    End="134.999995194376,16.2499997094274" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRODUCTLINES\SRC_PRODUCTLINES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRODUCTLINES\ODS_PRODUCTLINES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

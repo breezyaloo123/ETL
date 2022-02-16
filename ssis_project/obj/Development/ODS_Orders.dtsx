@@ -1,0 +1,541 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/8/2021 10:28:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BREEZY-ALOO"
+  DTS:CreatorName="BREEZY-ALOO\LENOVO"
+  DTS:DTSID="{A4B63C72-10AC-44A8-BA9A-046F9C784399}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="ODS_Orders"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{2DC57ECE-D80B-4ECD-A806-40916103C6AD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C6CA24FE-0860-4C45-B1B8-8C7FCEE151D2}"
+      DTS:ObjectName="BREEZY-ALOO.ODS_MACROBUS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BREEZY-ALOO;Initial Catalog=ODS_MACROBUS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{CFB2A00A-CB32-4CB0-96EA-A62E2A9EF8FF}"
+      DTS:ObjectName="Gestionnaire de connexions Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ORDERS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{15895B94-E05E-407A-BCEF-D426B9841376}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ORDERS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ORDERS\ODS_ORDERS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="ODS_ORDERS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[ODS].[ODS_ORDERS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ORDERS\ODS_ORDERS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  connectionManagerRefId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].Columns[orderNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderNumber"
+                      externalMetadataColumnId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[orderNumber]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderNumber]" />
+                    <inputColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].Columns[orderDate]"
+                      cachedDataType="date"
+                      cachedName="orderDate"
+                      externalMetadataColumnId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[orderDate]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderDate]" />
+                    <inputColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].Columns[requiredDate]"
+                      cachedDataType="date"
+                      cachedName="requiredDate"
+                      externalMetadataColumnId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[requiredDate]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[requiredDate]" />
+                    <inputColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].Columns[shippedDate]"
+                      cachedDataType="date"
+                      cachedName="shippedDate"
+                      externalMetadataColumnId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[shippedDate]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[shippedDate]" />
+                    <inputColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].Columns[status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="status"
+                      externalMetadataColumnId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[status]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[status]" />
+                    <inputColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].Columns[comments]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="comments"
+                      externalMetadataColumnId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[comments]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[comments]" />
+                    <inputColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].Columns[customerNumber]"
+                      cachedDataType="r8"
+                      cachedName="customerNumber"
+                      externalMetadataColumnId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[customerNumber]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[customerNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[orderNumber]"
+                      dataType="r8"
+                      name="orderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[orderDate]"
+                      dataType="dbTimeStamp"
+                      name="orderDate" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[requiredDate]"
+                      dataType="dbTimeStamp"
+                      name="requiredDate" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[shippedDate]"
+                      dataType="dbTimeStamp"
+                      name="shippedDate" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[status]"
+                      dataType="wstr"
+                      length="255"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      name="comments" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB].ExternalColumns[customerNumber]"
+                      dataType="i4"
+                      name="customerNumber" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ORDERS\ODS_ORDERS.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ORDERS\ODS_ORDERS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ORDERS\ODS_ORDERS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ORDERS\ODS_ORDERS.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ORDERS\SRC_ORDERS"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Source Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source Excel"
+              name="SRC_ORDERS"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">orders$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappage des paramètres de la commande SQL en variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ORDERS\SRC_ORDERS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Gestionnaire de connexions Excel]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel]"
+                  name="Sortie de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[orderNumber]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderNumber]"
+                      name="orderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[orderDate]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[orderDate]"
+                      name="orderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[requiredDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[requiredDate]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[requiredDate]"
+                      name="requiredDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[shippedDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[shippedDate]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[shippedDate]"
+                      name="shippedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[status]"
+                      length="255"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[status]"
+                      name="status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[comments]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[comments]"
+                      length="255"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[comments]"
+                      name="comments"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[customerNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[customerNumber]"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].Columns[customerNumber]"
+                      name="customerNumber"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[orderNumber]"
+                      dataType="r8"
+                      name="orderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[orderDate]"
+                      dataType="date"
+                      name="orderDate" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[requiredDate]"
+                      dataType="date"
+                      name="requiredDate" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[shippedDate]"
+                      dataType="date"
+                      name="shippedDate" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[status]"
+                      dataType="wstr"
+                      length="255"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      name="comments" />
+                    <externalMetadataColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel].ExternalColumns[customerNumber]"
+                      dataType="r8"
+                      name="customerNumber" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[orderNumber]"
+                      name="orderNumber" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[orderDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[orderDate]"
+                      name="orderDate" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[requiredDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[requiredDate]"
+                      name="requiredDate" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[shippedDate]"
+                      dataType="date"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[shippedDate]"
+                      name="shippedDate" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[status]"
+                      name="status" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[comments]"
+                      name="comments" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[customerNumber]"
+                      dataType="r8"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[customerNumber]"
+                      name="customerNumber" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie d'erreur de source Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ORDERS.Paths[Sortie de source Excel]"
+              endId="Package\ORDERS\ODS_ORDERS.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source Excel"
+              startId="Package\ORDERS\SRC_ORDERS.Outputs[Sortie de source Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="120,42.6666666666667"
+          Id="Package\ORDERS"
+          TopLeft="138.749997932464,66.9499988028407" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ORDERS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42.6666666666667"
+          Id="Package\ORDERS\SRC_ORDERS"
+          TopLeft="55.6249991711229,61.0999989074469" />
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\ORDERS\ODS_ORDERS"
+          TopLeft="317.499995268881,68.2499987795949" />
+        <EdgeLayout
+          Id="Package\ORDERS.Paths[Sortie de source Excel]"
+          TopLeft="199.624999171123,86.0083321768543">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117.874996097758,0"
+              Start="0,0"
+              End="110.374996097758,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="110.374996097758,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ORDERS\SRC_ORDERS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ORDERS\ODS_ORDERS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

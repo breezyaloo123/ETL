@@ -1,0 +1,1612 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/30/2021 10:27:56 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BREEZY-ALOO"
+  DTS:CreatorName="BREEZY-ALOO\LENOVO"
+  DTS:DTSID="{1C0E7F86-BF76-4961-990E-7C6731AF07DE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Alldatas"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{72DFD376-D8A7-4563-9DFE-2236AFBD5909}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{432B1E6C-9BB4-45F1-8151-D20801CDA369}"
+      DTS:ObjectName="BREEZY-ALOO.ODS_MACROBUS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BREEZY-ALOO;Initial Catalog=ODS_MACROBUS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BREEZY-ALOO.PROJECT_MICROBUS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C1708227-0393-4274-8492-4ED058D13EDB}"
+      DTS:ObjectName="BREEZY-ALOO.PROJECT_MICROBUS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=BREEZY-ALOO;Initial Catalog=PROJECT_MICROBUS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Gestionnaire de connexions Excel 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{E7D188C8-8AB4-44FE-B7CD-FBD4B03C187E}"
+      DTS:ObjectName="Gestionnaire de connexions Excel 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\LENOVO\Documents\M2BI\practises\ORDERS.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DATAS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{B74E52D1-741B-4890-96F8-835CCCB17A99}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DATAS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DATAS\Jointure de fusion"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine deux flux de données triés en un seul à l'aide de la jointure FULL, LEFT ou INNER. Nous recommandons cette transformation lorsque les flux de données peuvent être triés au niveau de leurs sources."
+              name="Jointure de fusion"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de jointure à effectuer."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre de colonnes dans la clé de tri."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs NULL sont traitées comme valeurs égales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indique le nombre maximal de mémoires tampons demandées par entrée avant blocage."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée gauche de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[orderNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderNumber"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[orderNumber]" />
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[productCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="productCode"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[productCode]" />
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[quantityOrdered]"
+                      cachedDataType="r8"
+                      cachedName="quantityOrdered"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[quantityOrdered]" />
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[priceEach]"
+                      cachedDataType="r8"
+                      cachedName="priceEach"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[priceEach]" />
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[orderLineNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderLineNumber"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[orderLineNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée droite de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[orderNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderNumber"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[orderNumber]" />
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[orderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="orderDate"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[orderDate]" />
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[requiredDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="requiredDate"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[requiredDate]" />
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[shippedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="shippedDate"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[shippedDate]" />
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="status"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[status]" />
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[comments]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="comments"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[comments]" />
+                    <inputColumn
+                      refId="Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[customerNumber]"
+                      cachedDataType="numeric"
+                      cachedName="customerNumber"
+                      cachedPrecision="18"
+                      cachedSortKeyPosition="7"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[customerNumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion]"
+                  isSorted="true"
+                  name="Sortie de jointure de fusion">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderNumber]"
+                      name="orderNumber"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[orderNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[productCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[productCode]"
+                      name="productCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[productCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[quantityOrdered]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[quantityOrdered]"
+                      name="quantityOrdered">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[quantityOrdered]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[priceEach]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[priceEach]"
+                      name="priceEach">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[priceEach]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderLineNumber]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderLineNumber]"
+                      name="orderLineNumber">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[orderLineNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[orderDate]"
+                      name="orderDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[orderDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[requiredDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[requiredDate]"
+                      name="requiredDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[requiredDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[shippedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[shippedDate]"
+                      name="shippedDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[shippedDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[status]"
+                      name="status">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[status]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[comments]"
+                      name="comments">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[comments]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[customerNumber]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[customerNumber]"
+                      name="customerNumber">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[customerNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DATAS\Recherche"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="Recherche"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [DWH].[Dim_CUSTOMERS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="keyCustomer" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customerNumber" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="customerName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="contactLastName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="contactFirstName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="phone" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="addressLine1" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="addressLine2" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="state" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="postalCode" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="country" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="salesRepEmployeeNumber" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="creditLimit" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DATAS\Recherche.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BREEZY-ALOO.PROJECT_MICROBUS]"
+                  connectionManagerRefId="Package.ConnectionManagers[BREEZY-ALOO.PROJECT_MICROBUS]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DATAS\Recherche.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DATAS\Recherche.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DATAS\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DATAS\Recherche.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DATAS\Recherche.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DATAS\Recherche.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DATAS\Recherche.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DATAS\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DATAS\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DATAS\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DATAS\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DATAS\SRC_ORDERDETAILS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="SRC_ORDERDETAILS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[ODS].[ODS_ORDERDETAILS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DATAS\SRC_ORDERDETAILS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  connectionManagerRefId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[orderNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].ExternalColumns[orderNumber]"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[orderNumber]"
+                      name="orderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[productCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].ExternalColumns[productCode]"
+                      length="255"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[productCode]"
+                      name="productCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[quantityOrdered]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].ExternalColumns[quantityOrdered]"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[quantityOrdered]"
+                      name="quantityOrdered"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[priceEach]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].ExternalColumns[priceEach]"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[priceEach]"
+                      name="priceEach"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[orderLineNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].ExternalColumns[orderLineNumber]"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[orderLineNumber]"
+                      name="orderLineNumber"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].ExternalColumns[orderNumber]"
+                      dataType="r8"
+                      name="orderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].ExternalColumns[productCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="productCode" />
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].ExternalColumns[quantityOrdered]"
+                      dataType="r8"
+                      name="quantityOrdered" />
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].ExternalColumns[priceEach]"
+                      dataType="r8"
+                      name="priceEach" />
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].ExternalColumns[orderLineNumber]"
+                      dataType="r8"
+                      name="orderLineNumber" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[orderNumber]"
+                      name="orderNumber" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[productCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[productCode]"
+                      name="productCode" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[quantityOrdered]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[quantityOrdered]"
+                      name="quantityOrdered" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[priceEach]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[priceEach]"
+                      name="priceEach" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[orderLineNumber]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[orderLineNumber]"
+                      name="orderLineNumber" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DATAS\SRC_ORDERS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="SRC_ORDERS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[ODS].[ODS_ORDERS]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DATAS\SRC_ORDERS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  connectionManagerRefId="Package.ConnectionManagers[BREEZY-ALOO.ODS_MACROBUS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[orderNumber]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[orderNumber]"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[orderNumber]"
+                      name="orderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[orderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[orderDate]"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[orderDate]"
+                      name="orderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[requiredDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[requiredDate]"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[requiredDate]"
+                      name="requiredDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[shippedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[shippedDate]"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[shippedDate]"
+                      name="shippedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[status]"
+                      length="255"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[status]"
+                      name="status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[comments]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[comments]"
+                      length="255"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[comments]"
+                      name="comments"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[customerNumber]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[customerNumber]"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[customerNumber]"
+                      name="customerNumber"
+                      precision="18"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[orderNumber]"
+                      dataType="r8"
+                      name="orderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[orderDate]"
+                      dataType="dbTimeStamp"
+                      name="orderDate" />
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[requiredDate]"
+                      dataType="dbTimeStamp"
+                      name="requiredDate" />
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[shippedDate]"
+                      dataType="dbTimeStamp"
+                      name="shippedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[status]"
+                      dataType="wstr"
+                      length="255"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      name="comments" />
+                    <externalMetadataColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].ExternalColumns[customerNumber]"
+                      dataType="numeric"
+                      name="customerNumber"
+                      precision="18" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[orderNumber]"
+                      name="orderNumber" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[orderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[orderDate]"
+                      name="orderDate" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[requiredDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[requiredDate]"
+                      name="requiredDate" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[shippedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[shippedDate]"
+                      name="shippedDate" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[status]"
+                      name="status" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[comments]"
+                      name="comments" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[customerNumber]"
+                      dataType="numeric"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[customerNumber]"
+                      name="customerNumber"
+                      precision="18" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DATAS\Trier"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DATAS\Trier.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DATAS\Trier.Inputs[Entrée de tri].Columns[orderNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderNumber"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[orderNumber]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DATAS\Trier.Inputs[Entrée de tri].Columns[productCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="productCode"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[productCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DATAS\Trier.Inputs[Entrée de tri].Columns[quantityOrdered]"
+                      cachedDataType="r8"
+                      cachedName="quantityOrdered"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[quantityOrdered]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DATAS\Trier.Inputs[Entrée de tri].Columns[priceEach]"
+                      cachedDataType="r8"
+                      cachedName="priceEach"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[priceEach]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DATAS\Trier.Inputs[Entrée de tri].Columns[orderLineNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderLineNumber"
+                      lineageId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[orderLineNumber]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DATAS\Trier.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[orderNumber]"
+                      name="orderNumber"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[orderNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[productCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[productCode]"
+                      name="productCode"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[productCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[quantityOrdered]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[quantityOrdered]"
+                      name="quantityOrdered"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[quantityOrdered]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[priceEach]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[priceEach]"
+                      name="priceEach"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[priceEach]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[orderLineNumber]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\Trier.Outputs[Sortie de tri].Columns[orderLineNumber]"
+                      name="orderLineNumber"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB].Columns[orderLineNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DATAS\Trier 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Trier 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DATAS\Trier 1.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DATAS\Trier 1.Inputs[Entrée de tri].Columns[orderNumber]"
+                      cachedDataType="r8"
+                      cachedName="orderNumber"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[orderNumber]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DATAS\Trier 1.Inputs[Entrée de tri].Columns[orderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="orderDate"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[orderDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DATAS\Trier 1.Inputs[Entrée de tri].Columns[requiredDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="requiredDate"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[requiredDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DATAS\Trier 1.Inputs[Entrée de tri].Columns[shippedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="shippedDate"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[shippedDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DATAS\Trier 1.Inputs[Entrée de tri].Columns[status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="status"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[status]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DATAS\Trier 1.Inputs[Entrée de tri].Columns[comments]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="comments"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[comments]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">6</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DATAS\Trier 1.Inputs[Entrée de tri].Columns[customerNumber]"
+                      cachedDataType="numeric"
+                      cachedName="customerNumber"
+                      cachedPrecision="18"
+                      lineageId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[customerNumber]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">7</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DATAS\Trier 1.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[orderNumber]"
+                      dataType="r8"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[orderNumber]"
+                      name="orderNumber"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[orderNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[orderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[orderDate]"
+                      name="orderDate"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[orderDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[requiredDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[requiredDate]"
+                      name="requiredDate"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[requiredDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[shippedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[shippedDate]"
+                      name="shippedDate"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[shippedDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[status]"
+                      name="status"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[status]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[comments]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[comments]"
+                      name="comments"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[comments]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[customerNumber]"
+                      dataType="numeric"
+                      lineageId="Package\DATAS\Trier 1.Outputs[Sortie de tri].Columns[customerNumber]"
+                      name="customerNumber"
+                      precision="18"
+                      sortKeyPosition="7">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB].Columns[customerNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DATAS.Paths[Sortie de jointure de fusion]"
+              endId="Package\DATAS\Recherche.Inputs[Entrée de recherche]"
+              name="Sortie de jointure de fusion"
+              startId="Package\DATAS\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\DATAS.Paths[Sortie de source OLE DB]"
+              endId="Package\DATAS\Trier.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\DATAS\SRC_ORDERDETAILS.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\DATAS.Paths[Sortie de source OLE DB1]"
+              endId="Package\DATAS\Trier 1.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\DATAS\SRC_ORDERS.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\DATAS.Paths[Sortie de tri]"
+              endId="Package\DATAS\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\DATAS\Trier.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\DATAS.Paths[Sortie de tri1]"
+              endId="Package\DATAS\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\DATAS\Trier 1.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="8">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="112,42.6666666666667"
+          Id="Package\DATAS"
+          TopLeft="106.249998416752,68.2499987795949" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DATAS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\DATAS\SRC_ORDERDETAILS"
+          TopLeft="17.4999997392297,22.7499995931983" />
+        <NodeLayout
+          Size="144,42.6666666666667"
+          Id="Package\DATAS\SRC_ORDERS"
+          TopLeft="377.499994374812,24.0499995699525" />
+        <NodeLayout
+          Size="101.333333333334,42.6666666666667"
+          Id="Package\DATAS\Trier"
+          TopLeft="168.124997494742,107.899998070598" />
+        <EdgeLayout
+          Id="Package\DATAS.Paths[Sortie de source OLE DB]"
+          TopLeft="107.49999973923,65.416666259865">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.291664422179,42.4833318107328"
+              Start="0,0"
+              End="111.291664422179,34.9833318107328">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.2416659053664" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.2416659053664"
+                    Point2="0,21.2416659053664"
+                    Point3="4,21.2416659053664" />
+                  <mssgle:LineSegment
+                    End="107.291664422179,21.2416659053664" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.291664422179,21.2416659053664"
+                    Point2="111.291664422179,21.2416659053664"
+                    Point3="111.291664422179,25.2416659053664" />
+                  <mssgle:LineSegment
+                    End="111.291664422179,34.9833318107328" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="110.666666666667,42.6666666666667"
+          Id="Package\DATAS\Trier 1"
+          TopLeft="429.374993601814,96.8499982681871" />
+        <EdgeLayout
+          Id="Package\DATAS.Paths[Sortie de source OLE DB1]"
+          TopLeft="449.499994374812,66.7166662366191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35.2083325603356,30.1333320315679"
+              Start="0,0"
+              End="35.2083325603356,22.6333320315679">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.066666015784" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.066666015784"
+                    Point2="0,15.066666015784"
+                    Point3="4,15.066666015784" />
+                  <mssgle:LineSegment
+                    End="31.2083325603356,15.066666015784" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.2083325603356,15.066666015784"
+                    Point2="35.2083325603356,15.066666015784"
+                    Point3="35.2083325603356,19.066666015784" />
+                  <mssgle:LineSegment
+                    End="35.2083325603356,22.6333320315679" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\DATAS\Jointure de fusion"
+          TopLeft="289.999995678663,180.049996780455" />
+        <EdgeLayout
+          Id="Package\DATAS.Paths[Sortie de tri]"
+          TopLeft="218.791664161409,150.566664737264">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153.208331517254,29.4833320431908"
+              Start="0,0"
+              End="153.208331517254,21.9833320431908">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.7416660215954" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.7416660215954"
+                    Point2="0,14.7416660215954"
+                    Point3="4,14.7416660215954" />
+                  <mssgle:LineSegment
+                    End="149.208331517254,14.7416660215954" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149.208331517254,14.7416660215954"
+                    Point2="153.208331517254,14.7416660215954"
+                    Point3="153.208331517254,18.7416660215954" />
+                  <mssgle:LineSegment
+                    End="153.208331517254,21.9833320431908" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DATAS.Paths[Sortie de tri1]"
+          TopLeft="484.708326935147,139.516664934854">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-86.708331256484,40.5333318456014"
+              Start="0,0"
+              End="-86.708331256484,33.0333318456014">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.0850232705748" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.0850232705748"
+                    Point2="0,24.0850232705748"
+                    Point3="-4,24.0850232705748" />
+                  <mssgle:LineSegment
+                    End="-82.708331256484,24.0850232705748" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-82.708331256484,24.0850232705748"
+                    Point2="-86.708331256484,24.0850232705748"
+                    Point3="-86.708331256484,28.0850232705748" />
+                  <mssgle:LineSegment
+                    End="-86.708331256484,33.0333318456014" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.333333333334,42.6666666666667"
+          Id="Package\DATAS\Recherche"
+          TopLeft="266.874996023253,245.049995618165" />
+        <EdgeLayout
+          Id="Package\DATAS.Paths[Sortie de jointure de fusion]"
+          TopLeft="289.999995678663,201.383330113789">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.541667011256,43.6666655043761"
+              Start="0,0"
+              End="41.541667011256,36.1666655043761">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.541667011256,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.541667011256,0"
+                    Point2="41.541667011256,0"
+                    Point3="41.541667011256,4" />
+                  <mssgle:LineSegment
+                    End="41.541667011256,36.1666655043761" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DATAS\SRC_ORDERDETAILS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DATAS\SRC_ORDERS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DATAS\Recherche">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[DWH].[Dim_CUSTOMERS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
